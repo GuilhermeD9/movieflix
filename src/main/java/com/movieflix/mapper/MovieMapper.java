@@ -14,11 +14,11 @@ import java.util.stream.Collectors;
 public class MovieMapper {
     public static Movie toMovie(MovieRequest movieRequest) {
         List<Category> categories = movieRequest.categories().stream()
-                .map(categoryId -> new Category(categoryId, "??"))
+                .map(categoryId -> new Category(categoryId, ""))
                 .collect(Collectors.toList());
 
         List<Streaming> streamings = movieRequest.streamings().stream()
-                .map(streamingId -> new Streaming(streamingId, "??"))
+                .map(streamingId -> new Streaming(streamingId, ""))
                 .collect(Collectors.toList());
 
         return new Movie(
