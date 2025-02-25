@@ -36,6 +36,38 @@ public class MovieService {
         return repository.findById(id);
     }
 
+    public List<Movie> findByCategory(Long categoryId) {
+        return repository.findMovieByCategories(List.of(new Category(categoryId)));
+    }
+
+    public Optional<Movie> update(Long id, Movie updatedMovie) {
+        Optional<Movie> optMovie = repository.findById(id);
+        if (optMovie.isPresent()) {
+            List<Category> categories = this.findCategories(updatedMovie.getCategories());
+            List<Streaming> streamings = this.findStreamings(updatedMovie.getStreamings());
+
+            Movie movie = optMovie.get();
+            movie.setTitle(updatedMovie.getTitle());
+            movie.setDescription(updatedMovie.getDescription());
+            movie.setReleaseDate(updatedMovie.getReleaseDate());
+            movie.setRating(updatedMovie.getRating());
+
+            movie.getCategories().clear();
+            movie.getCategories().addAll(categories);
+
+            movie.getStreamings().clear();
+            movie.getStreamings().addAll(streamings);
+
+            repository.save(movie);
+            return Optional.of(movie);
+        }
+        return Optional.empty();
+    }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
+
     private List<Category> findCategories(List<Category> categories) {
         List<Category> categoriesFound = new ArrayList<>();
         categories.forEach(category -> categoryService.findById(category.getId()).ifPresent(categoriesFound::add));
