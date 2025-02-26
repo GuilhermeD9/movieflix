@@ -34,6 +34,13 @@ public class StreamingController {
         return ResponseEntity.status(HttpStatus.CREATED).body(StreamingMapper.toStreamingResponse(savedStreaming));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<StreamingResponse> update(@PathVariable Long id, @RequestBody StreamingRequest request) {
+        return streamingService.update(id, StreamingMapper.toStreaming(request))
+                .map(streaming -> ResponseEntity.ok(StreamingMapper.toStreamingResponse(streaming)))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<StreamingResponse> getById(@PathVariable Long id) {
         return streamingService.findById(id)
