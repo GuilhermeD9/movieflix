@@ -23,6 +23,18 @@ public class CategoryService {
         return repository.save(category);
     }
 
+    public Optional<Category> update(Long id, Category updatedCateogry) {
+        Optional<Category> optionalCategory = repository.findById(id);
+        if (optionalCategory.isPresent()) {
+            Category category = optionalCategory.get();
+            category.setName(updatedCateogry.getName());
+
+            repository.save(category);
+            return Optional.of(category);
+        }
+        return Optional.empty();
+    }
+
     public Optional<Category> findById(Long id) {
         return repository.findById(id);
     }
