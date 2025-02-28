@@ -1,8 +1,8 @@
 package com.movieflix.mapper;
 
 import com.movieflix.entity.Category;
-import com.movieflix.request.CategoryRequest;
-import com.movieflix.response.CategoryResponse;
+import com.movieflix.controller.request.CategoryRequest;
+import com.movieflix.controller.response.CategoryResponse;
 
 public class CategoryMapper {
     public static Category toCategory(CategoryRequest categoryRequest) {

@@ -2,10 +2,9 @@ package com.movieflix.controller;
 
 import com.movieflix.entity.Movie;
 import com.movieflix.mapper.MovieMapper;
-import com.movieflix.request.MovieRequest;
-import com.movieflix.response.MovieResponse;
+import com.movieflix.controller.request.MovieRequest;
+import com.movieflix.controller.response.MovieResponse;
 import com.movieflix.service.MovieService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

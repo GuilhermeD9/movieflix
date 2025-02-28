@@ -2,8 +2,8 @@ package com.movieflix.controller;
 
 import com.movieflix.entity.Category;
 import com.movieflix.mapper.CategoryMapper;
-import com.movieflix.request.CategoryRequest;
-import com.movieflix.response.CategoryResponse;
+import com.movieflix.controller.request.CategoryRequest;
+import com.movieflix.controller.response.CategoryResponse;
 import com.movieflix.service.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

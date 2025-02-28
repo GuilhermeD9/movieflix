@@ -1,4 +1,4 @@
-package com.movieflix.request;
+package com.movieflix.controller.request;
 
 import jakarta.validation.constraints.NotEmpty;
 

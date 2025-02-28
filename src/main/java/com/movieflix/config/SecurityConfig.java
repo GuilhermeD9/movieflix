@@ -26,7 +26,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/movieflix/auth/login").permitAll()
                         .anyRequest().authenticated()
                 )
-                //.addFilter()
+                .addFilterBefore()
                 .build();
     }
 

@@ -1,4 +1,4 @@
-package com.movieflix.request;
+package com.movieflix.controller.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

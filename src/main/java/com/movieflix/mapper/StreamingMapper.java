@@ -1,8 +1,8 @@
 package com.movieflix.mapper;
 
 import com.movieflix.entity.Streaming;
-import com.movieflix.request.StreamingRequest;
-import com.movieflix.response.StreamingResponse;
+import com.movieflix.controller.request.StreamingRequest;
+import com.movieflix.controller.response.StreamingResponse;
 
 public class StreamingMapper {
     public static Streaming toStreaming(StreamingRequest streamingRequest) {

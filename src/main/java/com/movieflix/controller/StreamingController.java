@@ -2,8 +2,8 @@ package com.movieflix.controller;
 
 import com.movieflix.entity.Streaming;
 import com.movieflix.mapper.StreamingMapper;
-import com.movieflix.request.StreamingRequest;
-import com.movieflix.response.StreamingResponse;
+import com.movieflix.controller.request.StreamingRequest;
+import com.movieflix.controller.response.StreamingResponse;
 import com.movieflix.service.StreamingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
