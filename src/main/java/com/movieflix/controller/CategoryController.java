@@ -5,6 +5,7 @@ import com.movieflix.mapper.CategoryMapper;
 import com.movieflix.controller.request.CategoryRequest;
 import com.movieflix.controller.response.CategoryResponse;
 import com.movieflix.service.CategoryService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,14 +30,14 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoryResponse> save(@RequestBody CategoryRequest request) {
+    public ResponseEntity<CategoryResponse> save(@Valid @RequestBody CategoryRequest request) {
         Category newCategory = CategoryMapper.toCategory(request);
         Category savedCategory = categoryService.saveCategory(newCategory);
         return ResponseEntity.status(HttpStatus.CREATED).body(CategoryMapper.toCategoryResponse(savedCategory));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CategoryResponse> update(@PathVariable Long id, @RequestBody CategoryRequest request) {
+    public ResponseEntity<CategoryResponse> update(@PathVariable Long id, @Valid @RequestBody CategoryRequest request) {
         return categoryService.update(id, CategoryMapper.toCategory(request))
                 .map(category -> ResponseEntity.ok(CategoryMapper.toCategoryResponse(category)))
                 .orElse(ResponseEntity.notFound().build());
