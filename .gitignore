@@ -1,33 +1,58 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+### Build Artifacts ###
+# Maven
+/target/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Gradle
+/build/
 
-### IntelliJ IDEA ###
-.idea
+# Angular
+/dist/
+/out-tsc/
+/coverage/
+
+### Dependency Caching ###
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# Node
+/node_modules/
+
+### IDE and Editor Files ###
+# IntelliJ IDEA
+.idea/
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+# VS Code
 .vscode/
+# Keep essential VS Code files if needed, like settings
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+
+# Eclipse
+.project
+.classpath
+.settings/
+.apt_generated/
+.factorypath
+.springBeans
+
+### System and OS Files ###
+.DS_Store
+Thumbs.db
+
+### Logs and Cache ###
+*.log
+npm-debug.log*
+yarn-error.log*
+.sass-cache/
+/.angular/cache/
+
+### Miscellaneous ###
+HELP.md
+/tmp/
+/connect.lock
+/typings/
