@@ -16,6 +16,7 @@
 
 # Node
 /node_modules/
+front-end/node_modules/
 
 ### IDE and Editor Files ###
 # IntelliJ IDEA
