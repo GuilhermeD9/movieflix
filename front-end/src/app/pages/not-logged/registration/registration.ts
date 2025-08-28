@@ -3,10 +3,10 @@ import { Header } from '../../../components/not-logged/header/header';
 import { SignUp } from '../../../components/not-logged/sign-up/sign-up';
 
 @Component({
-  selector: 'app-registation',
+  selector: 'app-registration',
   imports: [Header, SignUp],
-  templateUrl: './registation.html',
-  styleUrl: './registation.css'
+  templateUrl: './registration.html',
+  styleUrl: './registration.css'
 })
 export class Registation {
 
