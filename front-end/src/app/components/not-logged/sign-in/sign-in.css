@@ -16,6 +16,12 @@ h1 {
     font-weight: 500;
 }
 
+.error-message {
+    color: #e50914;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
 .custom-input {
     background-color: #333;
     border: none;

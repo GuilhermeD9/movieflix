@@ -1,12 +1,42 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
+import { User } from '../../../interfaces/user';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sign-in',
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule, CommonModule],
   templateUrl: './sign-in.html',
   styleUrl: './sign-in.css'
 })
 export class SignIn {
+  user: User = {
+    email: '',
+    password: ''
+  };
 
+  errorMessage: string = '';
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  onSubmit() {
+    if (!this.user.email || !this.user.password) {
+      return;
+    }
+
+    this.authService.login(this.user).subscribe({
+      next: (response) => {
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        this.errorMessage = error.error;
+      }
+    });
+  }
 }
